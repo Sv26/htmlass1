@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game">
+      <h1>Rock Paper Scissors</h1>
+
+      <!-- Score -->
+      <div class="score">
+        <div>
+          <p>COMPUTER</p>
+          <span id="computerScore">0</span>
+        </div>
+        <div>
+          <p>YOU</p>
+          <span id="playerScore">0</span>
+        </div>
+      </div>
+
+      <!-- Game Area -->
+      <div class="arena">
+        <div class="pick">
+          <p>You Picked</p>
+          <div class="circle" id="playerDisplay">❓</div>
+        </div>
+
+        <p id="resultText"></p>
+
+        <div class="pick">
+          <p>PC Picked</p>
+          <div class="circle" id="computerDisplay">❓</div>
+        </div>
+      </div>
+
+      <!-- Choices -->
+      <div class="choices">
+        <button onclick="playGame('rock')">✊</button>
+        <button onclick="playGame('paper')">✋</button>
+        <button onclick="playGame('scissors')">✌️</button>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button onclick="resetGame()">Play Again</button>
+        <button id="nextBtn" class="hidden" onclick="nextRound()">Next</button>
+        <button onclick="toggleRules()">Rules</button>
+      </div>
+    </div>
+
+    <!-- Victory -->
+    <div class="victory" id="victoryScreen">
+      <h2>🎉 HURRAY 🎉</h2>
+      <p>You Won the Game</p>
+      <button onclick="resetGame()">Play Again</button>
+    </div>
+
+    <!-- Rules -->
+    <div class="modal" id="rulesModal">
+      <div class="modal-box">
+        <span class="close" onclick="toggleRules()">×</span>
+        <h3>Rules</h3>
+        <ul>
+          <li>Rock beats Scissors</li>
+          <li>Paper beats Rock</li>
+          <li>Scissors beats Paper</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

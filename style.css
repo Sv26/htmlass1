@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #8cc461;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.score div {
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  width: 45%;
+}
+
+.score span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.arena {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pick {
+  text-align: center;
+}
+
+.circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-top: 5px;
+}
+
+.winner {
+  background: #4caf50 !important;
+}
+
+#resultText {
+  font-weight: bold;
+}
+
+.choices button {
+  font-size: 24px;
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.actions button {
+  margin: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Victory */
+.victory {
+  position: fixed;
+  inset: 0;
+  background: #8cc461;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.victory.active {
+  display: flex;
+}
+
+/* Rules */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
