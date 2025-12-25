@@ -32,7 +32,7 @@ body {
 
 .header-bar {
   display: flex;
-  align-items: stretch; /* 🔑 important */
+  align-items: stretch; 
   justify-content: space-between;
   gap: 54px;
   padding: 10px;
@@ -67,11 +67,11 @@ body {
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  flex: 1; /* 🔑 SAME SIZE */
+  flex: 1; 
 }
 
 .score span {
-  margin-top: 2px; /* ✅ fixed */
+  margin-top: 2px; 
   font-size: 9px;
   letter-spacing: 0.8px;
   color: #666;
