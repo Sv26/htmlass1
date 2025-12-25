@@ -1,135 +1,360 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #8cc461;
+  margin: 0;
+  background: #90c96a;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+/* ================= GAME ================= */
 .game {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  width: 350px;
-  text-align: center;
+  width: 800px;
+  height: 720px;
+  background: #9bd36d;
+  border-radius: 16px;
+  padding: 22px 26px;
+  position: relative;
 }
 
-h1 {
-  margin-bottom: 20px;
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.header-bar {
+  display: flex;
+  align-items: stretch; /* 🔑 important */
+  justify-content: space-between;
+  gap: 54px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 4px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 35px;
+  letter-spacing: 2px;
+  line-height: 1.35;
+}
+
+/* ================= SCORE ================= */
+.score-box {
+  display: flex;
+  gap: 14px;
+  width: 30%;
+  align-items: stretch;
 }
 
 .score {
+  background: white;
+  border-radius: 8px;
+  padding: 10px 12px 12px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.score div {
-  background: #eee;
-  padding: 10px;
-  border-radius: 5px;
-  width: 45%;
+  text-align: center;
+  flex: 1; /* 🔑 SAME SIZE */
 }
 
 .score span {
-  font-size: 24px;
-  font-weight: bold;
+  margin-top: 2px; /* ✅ fixed */
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  color: #666;
+  font-weight: 600;
 }
 
-.arena {
+.score-value {
+  font-size: 30px;
+  font-weight: 800;
+  color: #000;
+  line-height: 1;
+  margin: auto;
+}
+
+/* ================= CHOICES ================= */
+.choices {
+  position: relative;
+  height: 320px;
+  margin-top: 70px;
+}
+
+/* Lines */
+.line {
+  position: absolute;
+  background: #2d5f2e;
+  height: 6px;
+  border-radius: 4px;
+  transform-origin: left center;
+}
+
+.line.one {
+  width: 160px;
+  top: 120px;
+  left: 265px;
+}
+
+.line.two {
+  width: 120px;
+  top: 120px;
+  left: 265px;
+  transform: rotate(60deg);
+}
+
+.line.three {
+  width: 120px;
+  top: 120px;
+  left: 425px;
+  transform: rotate(120deg);
+}
+
+/* Choice buttons */
+.choice {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background: white;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.rock {
+  border: 12px solid #197cdf;
+  top: 50px;
+  left: 215px;
+}
+
+.paper {
+  border: 12px solid #f5a623;
+  bottom: 0;
+  left: 295px;
+}
+
+.scissors {
+  border: 12px solid #8e44ad;
+  top: 50px;
+  left: 375px;
+}
+
+/* RESULT */
+.result {
+  position: absolute;
+  inset: 120px 30px 80px;
+  display: none;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0;
 }
 
-.pick {
+.picked {
   text-align: center;
+  color: white;
 }
 
-.circle {
-  width: 70px;
-  height: 70px;
+.picked p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.choice-result {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: #ddd;
+  background: white;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 32px;
-  margin-top: 5px;
+  align-items: center;
+  font-size: 50px;
 }
 
-.winner {
-  background: #4caf50 !important;
+.center {
+  text-align: center;
+  color: white;
 }
 
-#resultText {
+.center h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+#nextBtn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
   font-weight: bold;
 }
 
-.choices button {
-  font-size: 24px;
-  margin: 5px;
-  padding: 10px;
+/* RULES + NEW GAME */
+.rules-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-.actions button {
-  margin: 5px;
-  padding: 8px 15px;
+.newgame-btn {
+  position: absolute;
+  right: 140px;
+  bottom: 30px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  border-radius: 20px;
   cursor: pointer;
-}
-
-.hidden {
+  font-weight: bold;
   display: none;
 }
 
-/* Victory */
-.victory {
-  position: fixed;
+.newgame-btn:hover,
+.rules-btn:hover {
+  background: white;
+  color: #2d5f2e;
+}
+
+.rules {
+  position: absolute;
+  right: 20px;
+  bottom: 70px;
+  background: #2f6f36;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 3px solid white;
+  width: 200px;
+  font-size: 14px;
+  display: none;
+}
+
+.close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 28px;
+  height: 28px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= VICTORY SCREEN ================= */
+.victory-screen {
+  position: absolute;
   inset: 0;
-  background: #8cc461;
+  background: #90c96a;
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  z-index: 20;
+  border-radius: 16px;
 }
 
-.victory.active {
-  display: flex;
+.victory-screen .trophy {
+  font-size: 90px;
+  margin-bottom: 20px;
 }
 
-/* Rules */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
+.victory-screen h1 {
+  color: white;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin: 0;
 }
 
-.modal.active {
-  display: flex;
+.victory-screen p {
+  color: white;
+  letter-spacing: 2px;
+  margin: 10px 0 30px;
 }
 
-.modal-box {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 250px;
-}
-
-.close {
-  float: right;
+#playAgainBtn {
+  padding: 10px 28px;
+  border-radius: 24px;
+  border: none;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 20px;
+}
+.choice-result.win {
+  z-index: 2;
+  animation: winPulse 1.4s ease-out infinite;
+}
+
+/* OUTER DARK RIPPLE */
+.choice-result.win::before,
+.choice-result.win::after {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  z-index: -0.5;
+  pointer-events: none;
+  animation: darkRipple 1.6s ease-out infinite;
+}
+
+/* first strong ring */
+.choice-result.win::before {
+  box-shadow: 0 0 0 0 green;
+}
+
+/* second softer ring */
+.choice-result.win::after {
+  inset: -48px;
+  animation-delay: 0.35s;
+  box-shadow: 0 0 0 0 rgba(3, 55, 27, 0.35);
+}
+
+/* pulse stays subtle */
+@keyframes winPulse {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* DARK OUTWARD RIPPLE */
+@keyframes darkRipple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(3, 178, 85, 0.6);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 40px rgba(19, 216, 111, 0);
+    opacity: 1;
+  }
 }

@@ -2,74 +2,78 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="game">
-      <h1>Rock Paper Scissors</h1>
+      <div class="header">
+        <div class="header-bar">
+          <div class="title">ROCK<br />PAPER<br />SCISSORS</div>
 
-      <!-- Score -->
-      <div class="score">
-        <div>
-          <p>COMPUTER</p>
-          <span id="computerScore">0</span>
-        </div>
-        <div>
-          <p>YOU</p>
-          <span id="playerScore">0</span>
-        </div>
-      </div>
-
-      <!-- Game Area -->
-      <div class="arena">
-        <div class="pick">
-          <p>You Picked</p>
-          <div class="circle" id="playerDisplay">❓</div>
-        </div>
-
-        <p id="resultText"></p>
-
-        <div class="pick">
-          <p>PC Picked</p>
-          <div class="circle" id="computerDisplay">❓</div>
+          <div class="score-box">
+            <div class="score">
+              <span>COMPUTER SCORE</span>
+              <div class="score-value" id="pcScore">0</div>
+            </div>
+            <div class="score">
+              <span>YOUR SCORE</span>
+              <div class="score-value" id="userScore">0</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Choices -->
-      <div class="choices">
-        <button onclick="playGame('rock')">✊</button>
-        <button onclick="playGame('paper')">✋</button>
-        <button onclick="playGame('scissors')">✌️</button>
+      <div class="choices" id="choicesScreen">
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+        <div class="choice rock" data-choice="rock">✊🏿</div>
+        <div class="choice paper" data-choice="paper">🤚🏿</div>
+        <div class="choice scissors" data-choice="scissors">✌🏿</div>
       </div>
 
-      <!-- Actions -->
-      <div class="actions">
-        <button onclick="resetGame()">Play Again</button>
-        <button id="nextBtn" class="hidden" onclick="nextRound()">Next</button>
-        <button onclick="toggleRules()">Rules</button>
+      <div class="result" id="resultScreen">
+        <div class="picked">
+          <h4>YOU PICKED</h4>
+          <div class="choice-result" id="userPick"></div>
+        </div>
+
+        <div class="center">
+          <h2 id="resultText"></h2>
+          <button id="nextBtn">NEXT</button>
+        </div>
+
+        <div class="picked">
+          <p>PC PICKED</p>
+          <div class="choice-result" id="pcPick"></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Victory -->
-    <div class="victory" id="victoryScreen">
-      <h2>🎉 HURRAY 🎉</h2>
-      <p>You Won the Game</p>
-      <button onclick="resetGame()">Play Again</button>
-    </div>
+      <button class="newgame-btn" id="newGameBtn">NEW GAME</button>
+      <button class="rules-btn" id="openRules">RULES</button>
 
-    <!-- Rules -->
-    <div class="modal" id="rulesModal">
-      <div class="modal-box">
-        <span class="close" onclick="toggleRules()">×</span>
-        <h3>Rules</h3>
+      <div class="rules" id="rulesBox">
+        <div class="close" id="closeRules">✕</div>
+        <h3>Game Rules</h3>
         <ul>
           <li>Rock beats Scissors</li>
-          <li>Paper beats Rock</li>
           <li>Scissors beats Paper</li>
+          <li>Paper beats Rock</li>
+          <li>Rock beats Scissors</li>
+          <li>Scissors beats Paper</li>
+          <li>Paper beats Rock</li>
         </ul>
       </div>
+    </div>
+    <div class="victory-screen" id="victoryScreen">
+      <div class="trophy">🏆</div>
+      <h1 id="victoryTitle">🎉 HURRAY 🎉</h1>
+      <p id="victoryText"></p>
+      <button id="playAgainBtn">PLAY AGAIN</button>
     </div>
 
     <script src="script.js"></script>
